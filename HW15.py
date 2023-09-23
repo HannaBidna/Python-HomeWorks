@@ -1,6 +1,4 @@
-
 def cyfra(a):
-
     if a.isdigit() is True:
         a = int(a)
         if a == 0:
@@ -9,7 +7,7 @@ def cyfra(a):
            expl = 'позитивне ціле'
     else:
         if a.startswith('-'):
-            if a[1:len(a)].isdigit() is True and int(a[1:len(a)]) != 0:
+            if a.lstrip().isdigit() is True and int(a.lstrip()) != 0:
                expl = 'негативне ціле'
             else:
                 a = a.replace(',', '.')
@@ -22,17 +20,9 @@ def cyfra(a):
             parts = a.split('.', 1)
             if parts[0].isdigit() is True and parts[1].isdigit() is True:
                 expl = 'позитивне дробове'
-                  # print (parts)
             else:
                 expl = 'не'
-
     return (f'Ви ввели {expl} число: {a}')
-
-
-
-
-
-
 
 
 def main():
@@ -45,9 +35,6 @@ def main():
             #print(a)
             cyfra(a)
             print(cyfra(a))
-
-
-
 
 
 main()
