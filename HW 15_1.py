@@ -30,4 +30,5 @@ def main():
             cyfra(a)
             print(cyfra(a))
 
+
 main()
