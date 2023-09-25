@@ -1,12 +1,15 @@
 def cyfra(a):
-    if a.lstrip('-').isdigit() is True:
+    if a.isdigit() is True:
+        expl = 'позитивне ціле'
+    elif a.lstrip('-').isdigit() is True:
         num = int(a.lstrip('-'))
         if num == 0:
            expl = ''
         elif num > 0:
-           expl = 'позитивне ціле'
-        else:
            expl = 'негативне ціле'
+        else:
+            expl = 'не'
+
     else:
         try:
             a = a.replace(',', '.')
