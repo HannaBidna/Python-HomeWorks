@@ -7,11 +7,14 @@ def cyfra(a):
            expl = 'позитивне ціле'
     else:
         if a.startswith('-'):
-            if a.lstrip().isdigit() is True and int(a.lstrip()) != 0:
+            if a[1:len(a)].isdigit() is True and int(a[1:len(a)]) != 0:
                expl = 'негативне ціле'
+               a = int(a.lstrip())
             else:
                 a = a.replace(',', '.')
-                if a.split('.', 1)[0].strip('-').isdigit() is True and a.split('.', 1)[1].isdigit() is True:
+                b = a.split('.', 1)
+                print(b)
+                if b[0].strip('-').isdigit() is True and b[1].isdigit() is True:
                     expl = 'негативне дробове'
                 else:
                     expl = 'не'
