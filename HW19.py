@@ -20,3 +20,4 @@ with open('test2.csv', 'w', encoding='UTF-8') as f:
     for item in (fields_name, field1, field2, field3, field4, field5):
         file_write.writerow(item)
 
+
