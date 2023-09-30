@@ -1,4 +1,4 @@
-class Car:
+class Auto:
     cоlor = blue
     weight = 2
 
@@ -14,4 +14,4 @@ class Car:
         print('Stop')
 
     def birthday(self):
-        Car.age += 1
+        self.age += 1
