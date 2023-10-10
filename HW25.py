@@ -7,7 +7,8 @@ class Car:
         self.color = color_car
         self.model = model
         Car.NUMBER_OF_CARS += 1
-        Car.COLORS = Car.COLORS + [self.color] if Car.COLORS.count(self.color) == 0 else Car.COLORS
+        if self.color not in Car.COLORS:
+            Car.COLORS.append(self.color)
         self.year = year
         self.fuel_type = Car.isvalid_fuel_type(fuel_type)
         self.number = self.NUMBER_OF_CARS
