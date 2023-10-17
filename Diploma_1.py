@@ -20,4 +20,16 @@ class Person:
         birth_date = datetime.strptime(self.birth_date, '%d/%m/%Y')
         delta = end_date - birth_date
         return int(delta.days // 365.25)
-
+    def calculate_age(self):
+        if self.death_date:
+            end_date = datetime.strptime(self.death_date, '%d/%m/%Y')
+        else:
+            end_date = datetime.now()
+        birth_date = datetime.strptime(self.birth_date, '%d/%m/%Y')
+        if birth_date.month > end_date.month:
+            delta = end_date.year - birth_date.year - 1
+        elif birth_date.month == end_date.month and birth_date.day > end_date.day:
+            delta = end_date.year - birth_date.year - 1
+        else:
+            delta = end_date.year - birth_date.year
+        return delta

@@ -49,23 +49,47 @@ if __name__ == '__main__':
         answer = input("Введіть номер пункту: ")
 
         if answer == '1':
-            filename = input("Введіть назву файлу: ")
-            people = load_data(filename)
+            try:
+                filename = input("Введіть назву файлу: ")
+                people = load_data(filename)
+            except Exception:
+                print('***Помилка вводу!***')
+
         elif answer == '2':
-            filename = input("Введіть бажану назву файлу: ")
-            save_data(filename, people)
+            try:
+                filename = input("Введіть бажану назву файлу: ")
+                save_data(filename, people)
+            except Exception:
+                print('***Помилка вводу!***')
         elif answer == '3':
-            first_name = input("Введіть ім'я: ")
-            last_name = input("Введіть прізвище (за бажанням): ")
-            middle_name = input("Введіть по-батькові (за бажанням): ")
-            birth_date = input("Введіть дату народження: ")
-            birth_date = birth_date.replace('.', '/').replace('-', '/').replace(' ', '/')
-            death_date = input("Введіть дату смерті (за наявності): ")
-            if death_date:
-                death_date = death_date.replace('.', '/').replace('-', '/').replace(' ', '/')
-            gender = input("Введіть стать: ")
-            p = Person(first_name, last_name, middle_name, birth_date, death_date, gender)
-            people.append(p)
+            try:
+                first_name = input("Введіть ім'я: ")
+                if first_name.isdigit():
+                    raise ValueError('***Помилка вводу!***')
+
+                last_name = input("Введіть прізвище (за бажанням): ")
+                if last_name.isdigit():
+                    raise ValueError('***Помилка вводу!***')
+
+                middle_name = input("Введіть по-батькові (за бажанням): ")
+                if middle_name.isdigit():
+                    raise ValueError('***Помилка вводу!***')
+
+                birth_date = input("Введіть дату народження: ")
+                birth_date = birth_date.replace('.', '/').replace('-', '/').replace(' ', '/')
+                death_date = input("Введіть дату смерті (за наявності): ")
+                if death_date:
+                    death_date = death_date.replace('.', '/').replace('-', '/').replace(' ', '/')
+
+                gender = input("Введіть стать: ")
+                if gender != 'м' or gender != 'ж':
+                    raise ValueError('***Помилка вводу!***')
+
+
+                p = Person(first_name, last_name, middle_name, birth_date, death_date, gender)
+                people.append(p)
+            except ValueError as e:
+                print(e)
         elif answer == '4':
             query = input("Enter your search query: ")
             results = search(people, query)
