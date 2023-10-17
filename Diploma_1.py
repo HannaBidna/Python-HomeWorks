@@ -16,15 +16,6 @@ class Person:
             end_date = datetime.strptime(self.death_date, '%d/%m/%Y')
         else:
             end_date = datetime.now()
-
-        birth_date = datetime.strptime(self.birth_date, '%d/%m/%Y')
-        delta = end_date - birth_date
-        return int(delta.days // 365.25)
-    def calculate_age(self):
-        if self.death_date:
-            end_date = datetime.strptime(self.death_date, '%d/%m/%Y')
-        else:
-            end_date = datetime.now()
         birth_date = datetime.strptime(self.birth_date, '%d/%m/%Y')
         if birth_date.month > end_date.month:
             delta = end_date.year - birth_date.year - 1
