@@ -21,6 +21,7 @@ def load_data(filename):
              )
     return data
 
+
 def save_data(filename, data):
     wb = Workbook()
     sh = wb.active
@@ -82,7 +83,8 @@ if __name__ == '__main__':
                     death_date = death_date.replace('.', '/').replace('-', '/').replace(' ', '/')
 
                 gender = input("Введіть стать: ")
-                if gender != 'м' or gender != 'ж':
+
+                if gender.lower() not in ('м', 'ж'):
                     raise ValueError('***Помилка вводу!***')
 
 
